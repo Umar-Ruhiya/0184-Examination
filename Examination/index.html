@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dream Villa VR Experience</title>
+
+    <!-- A-Frame -->
+    <script src="scripts/aframe.min.js"></script>
+</head>
+
+<body>
+
+<a-scene
+    loading-screen="enabled: true"
+    renderer="antialias: true">
+
+    <!-- ASSETS -->
+    <a-assets timeout="20000">
+
+        <!-- SKY TEXTURE -->
+        <img id="skyTexture" src="textures/Sky.png">
+
+        <!-- VILLA MODEL -->
+        <a-asset-item
+            id="villaModel"
+            src="models/small_villa.gltf">
+        </a-asset-item>
+
+    </a-assets>
+
+
+    <!-- SKY -->
+    <a-sky
+        src="#skyTexture"
+        radius="5000">
+    </a-sky>
+
+
+    <!-- VILLA (SMALL BUT REALISTIC SIZE) -->
+    <a-entity
+        gltf-model="#villaModel"
+        position="0 -20 32"
+        scale="9 9 9"
+        rotation="0 66 0">
+    </a-entity>
+
+
+    <!-- LIGHTING -->
+
+    <!-- SUN -->
+    <a-light
+        type="directional"
+        position="50 100 50"
+        intensity="1.5">
+    </a-light>
+
+    <!-- AMBIENT -->
+    <a-light
+        type="ambient"
+        intensity="0.6">
+    </a-light>
+
+
+    <!-- CAMERA (REALISTIC HUMAN HEIGHT) -->
+    <a-entity position="0 1.2 22">
+
+        <a-camera
+            wasd-controls="acceleration: 50"
+            look-controls="pointerLockEnabled: true">
+        </a-camera>
+
+    </a-entity>
+
+
+</a-scene>
+
+</body>
+</html>
